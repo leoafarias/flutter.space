@@ -14,8 +14,16 @@ jobs:
         uses: denoland/setup-deno@main
         with:
           deno-version: v1.x
+
+      # - name: Setup dart
+      # - uses: dart-lang/setup-dart@v1
+
       - name: Check out repo
         uses: actions/checkout@v2
+
+      # - name: Spin up Dart API
+      #   run:
+
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
