@@ -43,6 +43,12 @@ jobs:
           http_url: https://storage.googleapis.com/flutter_infra/releases/releases_linux.json
           downloaded_filename: releases_linux.json
 
+      - name: Flutter Favorites
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/flutter-favorites
+          downloaded_filename: flutter-favorites.json
+
       - name: Fetch Trending Today
         uses: githubocto/flat@v3
         with:
