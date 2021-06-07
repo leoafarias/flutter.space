@@ -47,16 +47,16 @@ jobs:
         uses: githubocto/flat@v3
         with:
           http_url: http://localhost:8080/trending/today
-          downloaded_filename: github/trending-today.json
+          downloaded_filename: trending-repository-today.json
 
       - name: Fetch Trending Week
         uses: githubocto/flat@v3
         with:
           http_url: http://localhost:8080/trending/week
-          downloaded_filename: github/trending-week.json
+          downloaded_filename: trending-repository-week.json
 
       - name: Fetch Trending Month
         uses: githubocto/flat@v3
         with:
           http_url: http://localhost:8080/trending/month
-          downloaded_filename: github/trending-month.json
+          downloaded_filename: trending-repository-month.json
