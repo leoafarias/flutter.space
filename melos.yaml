@@ -1,5 +1,0 @@
-name: flutter_flat_data
-packages:
-  - packages/**
-scripts:
-  analyze: melos exec -- pub global run tuneup check

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/melos_melos.iml" filepath="$PROJECT_DIR$/melos_melos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/server/melos_server.iml" filepath="$PROJECT_DIR$/packages/server/melos_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melos_flutter_flat_data.iml" filepath="$PROJECT_DIR$/melos_flutter_flat_data.iml" />
     </modules>
   </component>
 </project>
