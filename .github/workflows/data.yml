@@ -16,7 +16,7 @@ jobs:
           deno-version: v1.x
 
       - name: Setup dart
-      - uses: dart-lang/setup-dart@v1
+        uses: dart-lang/setup-dart@v1
 
       - name: Check out repo
         uses: actions/checkout@v2
