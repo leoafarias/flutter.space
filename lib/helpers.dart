@@ -1,5 +1,9 @@
+import 'dart:convert';
+
+import 'package:gh_trend/gh_trend.dart';
 import 'package:pub_api_client/pub_api_client.dart';
 import 'package:pubspec/pubspec.dart';
+import 'package:shelf/shelf.dart';
 
 final client = PubClient();
 
@@ -93,13 +97,22 @@ Future<List<Package>> fetchPackagesInfo(Iterable<String> packages) async {
   return pkgList;
 }
 
+Future<List<GithubRepoItem>> fetchDartTrendingRepos(
+  GhTrendDateRange timePeriod,
+) {
+  return ghTrendingRepositories(
+    programmingLanguage: 'dart',
+    dateRange: timePeriod,
+  );
+}
+
 /// Retrieves all the flutter favorites
 Future<List<Package>> fetchFlutterFavorites() async {
   final searchResults = await client.search('is:flutter-favorite');
   final results = await _recursivePaging(searchResults);
   final favorites = results.map((r) => r.package);
 
-  return await fetchPackagesInfo(favorites);
+  return fetchPackagesInfo(favorites);
 }
 
 Future<List<PackageResult>> _recursivePaging(SearchResults prevResults) async {
@@ -111,4 +124,13 @@ Future<List<PackageResult>> _recursivePaging(SearchResults prevResults) async {
   }
 
   return packages;
+}
+
+Response jsonResponse(dynamic result) {
+  return Response.ok(
+    jsonEncode(result),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  );
 }

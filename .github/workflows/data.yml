@@ -1,0 +1,68 @@
+name: Fetch Data
+on:
+  schedule:
+    - cron: 0 0 * * *
+  workflow_dispatch: {}
+  push:
+    paths:
+      - .github/workflows/data.yml
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup deno
+        uses: denoland/setup-deno@main
+        with:
+          deno-version: v1.x
+
+      - name: Setup dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Check out repo
+        uses: actions/checkout@v2
+
+      - name: Pub get
+        run: dart pub get
+
+      - name: Start API
+        run: dart run bin/server.dart & dart --version
+
+      - name: Fetch data
+        uses: githubocto/flat@v3
+        with:
+          http_url: https://storage.googleapis.com/flutter_infra/releases/releases_macos.json
+          downloaded_filename: releases_macos.json
+      - name: Fetch data
+        uses: githubocto/flat@v3
+        with:
+          http_url: https://storage.googleapis.com/flutter_infra/releases/releases_windows.json
+          downloaded_filename: releases_windows.json
+      - name: Fetch data
+        uses: githubocto/flat@v3
+        with:
+          http_url: https://storage.googleapis.com/flutter_infra/releases/releases_linux.json
+          downloaded_filename: releases_linux.json
+
+      - name: Flutter Favorites
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/flutter-favorites
+          downloaded_filename: flutter-favorites.json
+
+      - name: Fetch Trending Today
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/trending/today
+          downloaded_filename: trending-repository-today.json
+
+      - name: Fetch Trending Week
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/trending/week
+          downloaded_filename: trending-repository-week.json
+
+      - name: Fetch Trending Month
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/trending/month
+          downloaded_filename: trending-repository-month.json
