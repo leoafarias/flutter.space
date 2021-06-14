@@ -13,7 +13,7 @@ jobs:
       - name: Setup deno
         uses: denoland/setup-deno@main
         with:
-          deno-version: v1.xbackup
+          deno-version: v1.x
 
       - name: Setup dart
         uses: dart-lang/setup-dart@v1
