@@ -13,7 +13,7 @@ jobs:
       - name: Setup deno
         uses: denoland/setup-deno@main
         with:
-          deno-version: v1.x
+          deno-version: v1.xbackup
 
       - name: Setup dart
         uses: dart-lang/setup-dart@v1
@@ -30,17 +30,17 @@ jobs:
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
-          http_url: https://storage.googleapis.com/flutter_infra/releases/releases_macos.json
+          http_url: https://storage.googleapis.com/flutter_infra_release/releases/releases_macos.json
           downloaded_filename: releases_macos.json
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
-          http_url: https://storage.googleapis.com/flutter_infra/releases/releases_windows.json
+          http_url: https://storage.googleapis.com/flutter_infra_release/releases/releases_windows.json
           downloaded_filename: releases_windows.json
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
-          http_url: https://storage.googleapis.com/flutter_infra/releases/releases_linux.json
+          http_url: https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json
           downloaded_filename: releases_linux.json
 
       - name: Flutter Favorites
