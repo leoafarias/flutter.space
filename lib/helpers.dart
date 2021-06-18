@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:gh_trend/gh_trend.dart';
 import 'package:pub_api_client/pub_api_client.dart';
-import 'package:pubspec/pubspec.dart';
 import 'package:shelf/shelf.dart';
 
 final client = PubClient();
@@ -14,7 +13,6 @@ class Package {
     required this.description,
     required this.url,
     required this.changelogUrl,
-    required this.latestPubspec,
     required this.grantedPoints,
     required this.maxPoints,
     required this.likeCount,
@@ -28,7 +26,6 @@ class Package {
   final String description;
   final String url;
   final String changelogUrl;
-  final PubSpec latestPubspec;
 
   final int? grantedPoints;
   final int? maxPoints;
@@ -43,7 +40,6 @@ class Package {
       'description': description,
       'url': url,
       'changelogUrl': changelogUrl,
-      'latestPubspec': latestPubspec.toJson(),
       'grantedPoints': grantedPoints.toString(),
       'maxPoints': maxPoints.toString(),
       'likeCount': likeCount.toString(),
@@ -84,7 +80,6 @@ Future<List<Package>> fetchPackagesInfo(Iterable<String> packages) async {
         description: pkg.description,
         url: pkg.url,
         changelogUrl: pkg.changelogUrl,
-        latestPubspec: pkg.latestPubspec,
         grantedPoints: card?.grantedPubPoints,
         maxPoints: card?.maxPubPoints,
         likeCount: score?.likeCount,
