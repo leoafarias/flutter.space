@@ -1,16 +1,40 @@
 {
-  "base_url": "https://storage.googleapis.com/flutter_infra/releases",
+  "base_url": "https://storage.googleapis.com/flutter_infra_release/releases",
   "current_release": {
-    "beta": "b22742018b3edf16c6cadd7b76d9db5e7f9064b5",
-    "dev": "fa5883b78e566877613ad1ccb48dd92075cb5c23",
-    "stable": "02c026b03cd31dd3f867e5faeb7e104cce174c5f"
+    "beta": "d79295af24c3ed621c33713ecda14ad196fd9c31",
+    "dev": "2b9537c783063d0459b6282a218658a6955938d9",
+    "stable": "d79295af24c3ed621c33713ecda14ad196fd9c31"
   },
   "releases": [
+    {
+      "hash": "2b9537c783063d0459b6282a218658a6955938d9",
+      "channel": "dev",
+      "version": "2.3.0-24.0.pre",
+      "release_date": "2021-06-17T00:35:28.086584Z",
+      "archive": "dev/windows/flutter_windows_2.3.0-24.0.pre-dev.zip",
+      "sha256": "64562a58bf9b1385c5d4684d4b031d11598991b5d8704c144245ed8dc247dc36"
+    },
+    {
+      "hash": "d79295af24c3ed621c33713ecda14ad196fd9c31",
+      "channel": "stable",
+      "version": "2.2.2",
+      "release_date": "2021-06-11T19:00:26.294703Z",
+      "archive": "stable/windows/flutter_windows_2.2.2-stable.zip",
+      "sha256": "4f8d1fc4520edd689e18acb8eaf996e5411313e8d64c2418f2fb2a5f91c0684d"
+    },
+    {
+      "hash": "d79295af24c3ed621c33713ecda14ad196fd9c31",
+      "channel": "beta",
+      "version": "2.2.2",
+      "release_date": "2021-06-11T18:35:58.845618Z",
+      "archive": "beta/windows/flutter_windows_2.2.2-beta.zip",
+      "sha256": "310e576c93cd9486910e45792cd6ad776f2b44cf62d1304b2ecec56a435087fc"
+    },
     {
       "hash": "fa5883b78e566877613ad1ccb48dd92075cb5c23",
       "channel": "dev",
       "version": "2.3.0-16.0.pre",
-      "release_date": "2021-05-28T00:07:04.717305Z",
+      "release_date": "2021-05-28T00:07:57.190564Z",
       "archive": "dev/windows/flutter_windows_2.3.0-16.0.pre-dev.zip",
       "sha256": "1e6075b7d5517f81e7ee409d15bae600339965e035a650067b221f6e6160c557"
     },
@@ -18,7 +42,7 @@
       "hash": "02c026b03cd31dd3f867e5faeb7e104cce174c5f",
       "channel": "stable",
       "version": "2.2.1",
-      "release_date": "2021-05-27T23:09:04.436458Z",
+      "release_date": "2021-05-27T23:09:50.145090Z",
       "archive": "stable/windows/flutter_windows_2.2.1-stable.zip",
       "sha256": "e2c6184fd01338031214c611ad27235d314ecb03a065426a85098a527925a671"
     },
@@ -26,7 +50,7 @@
       "hash": "b22742018b3edf16c6cadd7b76d9db5e7f9064b5",
       "channel": "beta",
       "version": "2.2.0",
-      "release_date": "2021-05-19T21:17:30.413175Z",
+      "release_date": "2021-05-19T21:18:17.025627Z",
       "archive": "beta/windows/flutter_windows_2.2.0-beta.zip",
       "sha256": "e0f305fa7b6d76693b7a866d0386262c1ebaf2d006335fc2d1241be438499e58"
     },
@@ -34,7 +58,7 @@
       "hash": "f9c825981c2d18f5bd90ce9eebb45d3ad345a9c4",
       "channel": "dev",
       "version": "2.3.0-12.1.pre",
-      "release_date": "2021-05-18T23:15:11.984897Z",
+      "release_date": "2021-05-18T23:15:58.959512Z",
       "archive": "dev/windows/flutter_windows_2.3.0-12.1.pre-dev.zip",
       "sha256": "e4194a89f7e8a5b15a2d28abae5ef72b911d648a87ac37621702313986028859"
     },
@@ -42,7 +66,7 @@
       "hash": "b22742018b3edf16c6cadd7b76d9db5e7f9064b5",
       "channel": "stable",
       "version": "2.2.0",
-      "release_date": "2021-05-18T19:12:44.691762Z",
+      "release_date": "2021-05-18T19:13:33.746554Z",
       "archive": "stable/windows/flutter_windows_2.2.0-stable.zip",
       "sha256": "63e912c9ba0944e9b7a56a4fd7c0184657aff7e955b5bf9e0e62232be1b3eec3"
     },
@@ -50,7 +74,7 @@
       "hash": "d97f41caed971d4668ffe56699367ec3978db8f6",
       "channel": "dev",
       "version": "2.3.0-1.0.pre",
-      "release_date": "2021-05-10T23:44:49.821112Z",
+      "release_date": "2021-05-10T23:45:38.165022Z",
       "archive": "dev/windows/flutter_windows_2.3.0-1.0.pre-dev.zip",
       "sha256": "97633b56d77a78fae58f2451408abcd5eba58fab451b3e45a198d54b0f68e73e"
     },
@@ -58,7 +82,7 @@
       "hash": "06e2fd63574bad2edafbe4653104ed76871ee0b1",
       "channel": "beta",
       "version": "2.2.0-10.3.pre",
-      "release_date": "2021-05-10T20:27:08.242300Z",
+      "release_date": "2021-05-10T20:27:58.364457Z",
       "archive": "beta/windows/flutter_windows_2.2.0-10.3.pre-beta.zip",
       "sha256": "61c0e4938ae1029a9a4b78595e2845990750d3cc4c699aad7cfa358584b7cac2"
     },
@@ -66,7 +90,7 @@
       "hash": "1d9032c7e1d867f071f2277eb1673e8f9b0274e3",
       "channel": "stable",
       "version": "2.0.6",
-      "release_date": "2021-04-30T19:00:31.962906Z",
+      "release_date": "2021-04-30T19:01:26.896538Z",
       "archive": "stable/windows/flutter_windows_2.0.6-stable.zip",
       "sha256": "bb514ab511b0afac43448183501d0cf73baa01704d6c4276c9ae8a7db77cd2f6"
     },
@@ -74,7 +98,7 @@
       "hash": "b5017bf8de877083978bfeb1874d236c3fc83029",
       "channel": "beta",
       "version": "2.2.0-10.2.pre",
-      "release_date": "2021-04-29T19:27:21.846112Z",
+      "release_date": "2021-04-29T19:28:08.098083Z",
       "archive": "beta/windows/flutter_windows_2.2.0-10.2.pre-beta.zip",
       "sha256": "610b5fb752e5d42a99002ede5d61be01817507c346c8d625b17f8b61dca7ab44"
     },
@@ -82,7 +106,7 @@
       "hash": "d72bfb8d073c6cf943a6637290dd3f8cdad11831",
       "channel": "dev",
       "version": "2.3.0-0.1.pre",
-      "release_date": "2021-04-27T16:49:12.152752Z",
+      "release_date": "2021-04-27T16:50:02.860723Z",
       "archive": "dev/windows/flutter_windows_2.3.0-0.1.pre-dev.zip",
       "sha256": "a1e68754262ee079dd42605b335ad983e6adbcf0d493f910aa94beb92cc70082"
     },
@@ -90,7 +114,7 @@
       "hash": "adc687823a831bbebe28bdccfac1a628ca621513",
       "channel": "stable",
       "version": "2.0.5",
-      "release_date": "2021-04-16T18:06:46.988183Z",
+      "release_date": "2021-04-16T18:07:32.858972Z",
       "archive": "stable/windows/flutter_windows_2.0.5-stable.zip",
       "sha256": "67438f40a9b811704555b9801b52738f4156b617a03351ff143335639a23b2b2"
     },
@@ -98,7 +122,7 @@
       "hash": "0941968447ea8058e56e1479f7e53147149b739e",
       "channel": "beta",
       "version": "2.2.0-10.1.pre",
-      "release_date": "2021-04-15T22:33:06.150073Z",
+      "release_date": "2021-04-15T22:34:08.366261Z",
       "archive": "beta/windows/flutter_windows_2.2.0-10.1.pre-beta.zip",
       "sha256": "548e019c8712a0eea8e4004374a035cf3b0e222ebe4e150f01184b0dfbd6a46a"
     },
@@ -106,7 +130,7 @@
       "hash": "0941968447ea8058e56e1479f7e53147149b739e",
       "channel": "dev",
       "version": "2.2.0-10.1.pre",
-      "release_date": "2021-04-15T21:42:19.545965Z",
+      "release_date": "2021-04-15T21:43:08.035141Z",
       "archive": "dev/windows/flutter_windows_2.2.0-10.1.pre-dev.zip",
       "sha256": "bdfec73fb4d4bf2d96408a531cb9e1dc43b2b5094dc9de55ec0b84ad758e5319"
     },
@@ -114,7 +138,7 @@
       "hash": "b1395592de68cc8ac4522094ae59956dd21a91db",
       "channel": "stable",
       "version": "2.0.4",
-      "release_date": "2021-04-02T20:40:57.314750Z",
+      "release_date": "2021-04-02T20:41:45.069586Z",
       "archive": "stable/windows/flutter_windows_2.0.4-stable.zip",
       "sha256": "42a722b7b364ff4b3b639b07f08fa83794d4bd1c467c86d6b574bcb2127ac6f5"
     },
@@ -122,7 +146,7 @@
       "hash": "4d7946a68d26794349189cf21b3f68cc6fe61dcb",
       "channel": "stable",
       "version": "2.0.3",
-      "release_date": "2021-03-19T20:17:00.731257Z",
+      "release_date": "2021-03-19T20:17:49.127100Z",
       "archive": "stable/windows/flutter_windows_2.0.3-stable.zip",
       "sha256": "182911341394a7baec1c587a3b92653f43c37f7abfe5a10b67dabedbd3dfd9d9"
     },
@@ -130,7 +154,7 @@
       "hash": "5bedb7b1d5698ce2c1c67aaf9afae7b3948b172a",
       "channel": "beta",
       "version": "2.1.0-12.2.pre",
-      "release_date": "2021-03-18T21:00:48.627463Z",
+      "release_date": "2021-03-18T21:01:30.584886Z",
       "archive": "beta/windows/flutter_windows_2.1.0-12.2.pre-beta.zip",
       "sha256": "d23c843e754013f72e76350c541fd12b772ce51bd5dd0dd41a740e63bc47a9aa"
     },
@@ -138,7 +162,7 @@
       "hash": "8962f6dc68ec8e2206ac2fa874da4a453856c7d3",
       "channel": "beta",
       "version": "2.0.2",
-      "release_date": "2021-03-15T17:02:01.795126Z",
+      "release_date": "2021-03-15T17:02:44.937930Z",
       "archive": "beta/windows/flutter_windows_2.0.2-beta.zip",
       "sha256": "289badd5caf2452448b0d41d68c3f410cca0fa58df1ffd9ec56e24d463ca6a71"
     },
@@ -146,7 +170,7 @@
       "hash": "8264cb3e8a797eef39cbcd32bb56fd07790efb7f",
       "channel": "dev",
       "version": "2.1.0-12.1.pre",
-      "release_date": "2021-03-13T00:57:16.262443Z",
+      "release_date": "2021-03-13T00:58:15.443374Z",
       "archive": "dev/windows/flutter_windows_2.1.0-12.1.pre-dev.zip",
       "sha256": "ff9b3428928d5619ff48cb13fff701d9100becefbf421f50810ca93c827f73ab"
     },
@@ -154,7 +178,7 @@
       "hash": "8962f6dc68ec8e2206ac2fa874da4a453856c7d3",
       "channel": "stable",
       "version": "2.0.2",
-      "release_date": "2021-03-12T20:16:58.889236Z",
+      "release_date": "2021-03-12T20:17:43.680039Z",
       "archive": "stable/windows/flutter_windows_2.0.2-stable.zip",
       "sha256": "aba438b6b177bff0264fae43e5494c1d191144413ea52d1f386b867c117d4af7"
     },
@@ -162,7 +186,7 @@
       "hash": "c5a4b4029c0798f37c4a39b479d7cb75daa7b05c",
       "channel": "beta",
       "version": "2.0.1",
-      "release_date": "2021-03-04T21:03:17.507284Z",
+      "release_date": "2021-03-04T21:04:05.748760Z",
       "archive": "beta/windows/flutter_windows_2.0.1-beta.zip",
       "sha256": "64b173e0a66722dc6c1a83949d3358088e23aa8639d9fe91ddac302fe46f2d58"
     },
@@ -170,7 +194,7 @@
       "hash": "c5a4b4029c0798f37c4a39b479d7cb75daa7b05c",
       "channel": "stable",
       "version": "2.0.1",
-      "release_date": "2021-03-04T19:49:50.531411Z",
+      "release_date": "2021-03-04T19:50:33.812586Z",
       "archive": "stable/windows/flutter_windows_2.0.1-stable.zip",
       "sha256": "e3abdabf62d98b7b2773047f67ce3f2f996b50132a85395453de019d43bbe721"
     },
@@ -178,7 +202,7 @@
       "hash": "cc9b78fc5c4a4d2d51316d9626523336230a89a9",
       "channel": "dev",
       "version": "2.1.0-10.0.pre",
-      "release_date": "2021-03-03T19:14:39.042872Z",
+      "release_date": "2021-03-03T19:15:23.589634Z",
       "archive": "dev/windows/flutter_windows_2.1.0-10.0.pre-dev.zip",
       "sha256": "b39a0b292a39697d071ef75797efc84806d53dff011ae730ab9c91b3828b96e7"
     },
@@ -186,7 +210,7 @@
       "hash": "60bd88df915880d23877bfc1602e8ddcf4c4dd2a",
       "channel": "beta",
       "version": "2.0.0",
-      "release_date": "2021-03-03T17:51:19.556560Z",
+      "release_date": "2021-03-03T17:52:00.540861Z",
       "archive": "beta/windows/flutter_windows_2.0.0-beta.zip",
       "sha256": "23764f0513d7cebfabb23253c2b1c6a8e60b152ec619e3da542136edfbfaf88c"
     },
@@ -194,7 +218,7 @@
       "hash": "60bd88df915880d23877bfc1602e8ddcf4c4dd2a",
       "channel": "stable",
       "version": "2.0.0",
-      "release_date": "2021-03-03T17:50:17.892863Z",
+      "release_date": "2021-03-03T17:51:02.649408Z",
       "archive": "stable/windows/flutter_windows_2.0.0-stable.zip",
       "sha256": "922a5d5dd009348360c9bf88af52fd3186120a7929c031b81683654fdb45bb74"
     },
@@ -202,7 +226,7 @@
       "hash": "044f2cf5607a26f8818dab0f766400e85c52bdff",
       "channel": "beta",
       "version": "1.26.0-17.8.pre",
-      "release_date": "2021-02-25T17:58:26.186358Z",
+      "release_date": "2021-02-25T17:58:50.381295Z",
       "archive": "beta/windows/flutter_windows_1.26.0-17.8.pre-beta.zip",
       "sha256": "31b457a5bd278432bd1147cb6857b4c635f36d0c11ca44d2f2642c704367c690"
     },
@@ -210,7 +234,7 @@
       "hash": "b7d4806243a4e906bf061f79a0e314ba28111aa6",
       "channel": "dev",
       "version": "1.27.0-8.0.pre",
-      "release_date": "2021-02-24T23:12:17.327254Z",
+      "release_date": "2021-02-24T23:12:42.442773Z",
       "archive": "dev/windows/flutter_windows_1.27.0-8.0.pre-dev.zip",
       "sha256": "e3e62300ee640eb92c368e3c96c7f14519c9fb956e186f7ff46f8654fe52e0ea"
     },
@@ -218,7 +242,7 @@
       "hash": "68e7d2e301e1969275cd11947e900b6b80405052",
       "channel": "beta",
       "version": "1.26.0-17.7.pre",
-      "release_date": "2021-02-24T18:26:29.797090Z",
+      "release_date": "2021-02-24T18:26:53.475169Z",
       "archive": "beta/windows/flutter_windows_1.26.0-17.7.pre-beta.zip",
       "sha256": "eb0f8106e283d77cf125ddbe2dddfb8866f588e1b75f0d3c7e21d7aa0809fed1"
     },
@@ -226,7 +250,7 @@
       "hash": "f8cd24de95b16b5a1ce6ebc0716154271fbf6252",
       "channel": "dev",
       "version": "1.27.0-4.0.pre",
-      "release_date": "2021-02-17T23:12:21.058306Z",
+      "release_date": "2021-02-17T23:12:51.997142Z",
       "archive": "dev/windows/flutter_windows_1.27.0-4.0.pre-dev.zip",
       "sha256": "54cdb27c9d96a4268b98fdd29c4937356289255154737a7cf08d6cc6ef76b57a"
     },
@@ -234,7 +258,7 @@
       "hash": "a29104a69b102a7485cd00d358eaeab219d258ab",
       "channel": "beta",
       "version": "1.26.0-17.6.pre",
-      "release_date": "2021-02-16T19:21:39.013663Z",
+      "release_date": "2021-02-16T19:22:03.896483Z",
       "archive": "beta/windows/flutter_windows_1.26.0-17.6.pre-beta.zip",
       "sha256": "4e997dfd0dc38336d1918aebe17d701a10262ea2590d05af047a3b828c94b8b3"
     },
@@ -242,7 +266,7 @@
       "hash": "1fe38dcb5fc58242c6e0904a318bcc3ed5a4d837",
       "channel": "beta",
       "version": "1.26.0-17.5.pre",
-      "release_date": "2021-02-11T17:55:25.670687Z",
+      "release_date": "2021-02-11T17:55:49.426620Z",
       "archive": "beta/windows/flutter_windows_1.26.0-17.5.pre-beta.zip",
       "sha256": "8f5a3440d125e5413255008894163970a0462588b04c50f3eb8139f7469cd351"
     },
@@ -250,7 +274,7 @@
       "hash": "68c96f100e42ab3dbf43e61e9e2fc875a2d50cb8",
       "channel": "dev",
       "version": "1.27.0-1.0.pre",
-      "release_date": "2021-02-10T23:58:19.092713Z",
+      "release_date": "2021-02-10T23:58:43.983270Z",
       "archive": "dev/windows/flutter_windows_1.27.0-1.0.pre-dev.zip",
       "sha256": "b0aca40f8e82c798f185bae23bf62b3074f989c344002a1e13932f996b379277"
     },
@@ -258,7 +282,7 @@
       "hash": "48c9d3e0e19e8fec84f1d316ce0559f26ca7277d",
       "channel": "beta",
       "version": "1.26.0-17.4.pre",
-      "release_date": "2021-02-10T21:39:41.420263Z",
+      "release_date": "2021-02-10T21:40:08.420207Z",
       "archive": "beta/windows/flutter_windows_1.26.0-17.4.pre-beta.zip",
       "sha256": "00ac018863b95c940964109f7101debcfdb0fa1337e703fe0ad82a56ee70ccbb"
     },
