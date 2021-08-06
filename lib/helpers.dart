@@ -119,9 +119,9 @@ Future<List<Package>> fetchSortedPackages(
 }) async {
   final searchResults = await client.search('', sort: sort);
   final results = await _recursivePaging(searchResults, limit: 100);
-  final favorites = results.map((r) => r.package);
+  final sorted = results.map((r) => r.package);
 
-  return fetchPackagesInfo(favorites);
+  return fetchPackagesInfo(sorted);
 }
 
 Future<List<PackageResult>> _recursivePaging(
@@ -138,7 +138,10 @@ Future<List<PackageResult>> _recursivePaging(
 
   if (prevResults.next != null) {
     final results = await client.nextPage(prevResults.next ?? '');
-    final nextResults = await _recursivePaging(results, limit: limit);
+    final nextResults = await _recursivePaging(
+      results,
+      limit: limit - results.packages.length,
+    );
     packages.addAll(nextResults);
   }
 
