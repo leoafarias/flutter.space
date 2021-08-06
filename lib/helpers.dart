@@ -106,7 +106,7 @@ Future<List<GithubRepoItem>> fetchDartTrendingRepos(
 /// Retrieves all the flutter favorites
 Future<List<Package>> fetchFlutterFavorites() async {
   final searchResults = await client.search('is:flutter-favorite');
-  final results = await _recursivePaging(searchResults);
+  final results = await _recursivePaging(searchResults, limit: 0);
   final favorites = results.map((r) => r.package);
 
   return fetchPackagesInfo(favorites);
@@ -118,7 +118,7 @@ Future<List<Package>> fetchSortedPackages(
   int limit = 100,
 }) async {
   final searchResults = await client.search('', sort: sort);
-  final results = await _recursivePaging(searchResults);
+  final results = await _recursivePaging(searchResults, limit: 100);
   final favorites = results.map((r) => r.package);
 
   return fetchPackagesInfo(favorites);
@@ -126,7 +126,7 @@ Future<List<Package>> fetchSortedPackages(
 
 Future<List<PackageResult>> _recursivePaging(
   SearchResults prevResults, {
-  int limit = 0,
+  required int limit,
 }) async {
   final packages = prevResults.packages;
   // If limit is set and has reached limit
@@ -138,7 +138,7 @@ Future<List<PackageResult>> _recursivePaging(
 
   if (prevResults.next != null) {
     final results = await client.nextPage(prevResults.next ?? '');
-    final nextResults = await _recursivePaging(results);
+    final nextResults = await _recursivePaging(results, limit: limit);
     packages.addAll(nextResults);
   }
 
