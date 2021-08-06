@@ -10,7 +10,7 @@ environment:
 dependencies:
   functions_framework: ^0.4.0
   gh_trend: ^1.0.3
-  pub_api_client: ^2.0.5
+  pub_api_client: ^2.1.0
   shelf: ^1.0.0
   shelf_plus: ^0.0.2
   shelf_router: ^1.0.0

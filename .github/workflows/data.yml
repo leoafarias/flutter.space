@@ -66,3 +66,27 @@ jobs:
         with:
           http_url: http://localhost:8080/trending/month
           downloaded_filename: trending-repository-month.json
+
+      - name: Most Popular Packages
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/packages/most-popular
+          downloaded_filename: packages-most-popular.json
+
+      - name: Most Liked Packages
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/packages/most-liked
+          downloaded_filename: packages-most-liked.json
+
+      - name: Recently Updated Packages
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/packages/recently-updated
+          downloaded_filename: packages-recently-updated.json
+
+      - name: Recently Created Packages
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/packages/recently-created
+          downloaded_filename: packages-recently-created.json

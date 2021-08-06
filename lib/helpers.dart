@@ -51,7 +51,7 @@ class Package {
 
 Future<List<Package>> fetchPackagesInfo(Iterable<String> packages) async {
   final pkgFutures = <Future<PubPackage>>[];
-  final metricsFutures = <Future<PackageMetrics>>[];
+  final metricsFutures = <Future<PackageMetrics?>>[];
   for (final package in packages) {
     pkgFutures.add(client.packageInfo(package));
     metricsFutures.add(client.packageMetrics(package));
@@ -63,7 +63,9 @@ Future<List<Package>> fetchPackagesInfo(Iterable<String> packages) async {
   final metricMap = <String, PackageMetrics>{};
 
   for (final metric in metrics) {
-    metricMap[metric.scorecard.packageName] = metric;
+    if (metric != null) {
+      metricMap[metric.scorecard.packageName] = metric;
+    }
   }
 
   final pkgList = <Package>[];
@@ -110,8 +112,30 @@ Future<List<Package>> fetchFlutterFavorites() async {
   return fetchPackagesInfo(favorites);
 }
 
-Future<List<PackageResult>> _recursivePaging(SearchResults prevResults) async {
+/// Retrieves a limited list of sorted packages
+Future<List<Package>> fetchSortedPackages(
+  SearchOrder sort, {
+  int limit = 100,
+}) async {
+  final searchResults = await client.search('', sort: sort);
+  final results = await _recursivePaging(searchResults);
+  final favorites = results.map((r) => r.package);
+
+  return fetchPackagesInfo(favorites);
+}
+
+Future<List<PackageResult>> _recursivePaging(
+  SearchResults prevResults, {
+  int limit = 0,
+}) async {
   final packages = prevResults.packages;
+  // If limit is set and has reached limit
+  // trim results to limit and return
+  if (limit > 0 && packages.length >= limit) {
+    packages.length = limit;
+    return packages;
+  }
+
   if (prevResults.next != null) {
     final results = await client.nextPage(prevResults.next ?? '');
     final nextResults = await _recursivePaging(results);
