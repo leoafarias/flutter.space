@@ -1,6 +1,6 @@
-# Flutter Flat Data
+# Flutter & Dart Unofficial Flat Data API
 
-Simple Flat Dataset for different helpful Flutter APIs
+Flat Dataset for different helpful Flutter APIs
 
 ### Flutter Releases
 
