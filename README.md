@@ -36,6 +36,11 @@ Monthly: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/tre
 
 https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/flutter-favorites.json
 
+### Google Packages
+
+Official Google packages on pub.dev
+https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/google-packages.json
+
 ### Releases
 
 MacOS: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/releases_macos.json

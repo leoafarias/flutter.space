@@ -49,6 +49,12 @@ jobs:
           http_url: http://localhost:8080/flutter-favorites
           downloaded_filename: flutter-favorites.json
 
+      - name: Google Packages
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/google-packages
+          downloaded_filename: google-packages.json
+
       - name: Fetch Trending Today
         uses: githubocto/flat@v3
         with:

@@ -19,6 +19,10 @@ FutureOr<Response> function(Request request) {
     return fetchFlutterFavorites();
   });
 
+  app.get('/google-packages', (Request request) {
+    return fetchGooglePackages();
+  });
+
   app.get('/trending/today', (Request request) {
     return fetchDartTrendingRepos(GhTrendDateRange.today);
   });

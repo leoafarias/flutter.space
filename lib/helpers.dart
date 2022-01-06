@@ -104,11 +104,14 @@ Future<List<GithubRepoItem>> fetchDartTrendingRepos(
 }
 
 /// Retrieves all the flutter favorites
-Future<List<Package>> fetchFlutterFavorites() async {
-  final searchResults = await client.search('is:flutter-favorite');
-  final results = await _recursivePaging(searchResults, limit: 0);
-  final favorites = results.map((r) => r.package);
+Future<List<Package>> fetchGooglePackages() async {
+  final googlePkgs = await client.fetchGooglePackages();
+  return fetchPackagesInfo(googlePkgs);
+}
 
+/// Retrieves all the flutter favorites
+Future<List<Package>> fetchFlutterFavorites() async {
+  final favorites = await client.fetchFlutterFavorites();
   return fetchPackagesInfo(favorites);
 }
 
