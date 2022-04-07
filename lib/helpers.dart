@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:gh_trend/gh_trend.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_extensions/http_extensions.dart';
@@ -120,8 +118,11 @@ Future<List<Package>> fetchPackagesInfo(Iterable<String> packages) async {
   return pkgList;
 }
 
-final _trendingCache =
-    {} as LinkedHashMap<GhTrendDateRange, List<GithubRepoItem>>;
+final _trendingCache = {
+  GhTrendDateRange.today: <GithubRepoItem>[],
+  GhTrendDateRange.thisWeek: <GithubRepoItem>[],
+  GhTrendDateRange.thisMonth: <GithubRepoItem>[]
+};
 
 Future<List<GithubRepoItem>> fetchDartTrendingRepos(
   GhTrendDateRange timePeriod,
@@ -186,4 +187,3 @@ Future<List<PackageResult>> _recursivePaging(
 
   return packages;
 }
-

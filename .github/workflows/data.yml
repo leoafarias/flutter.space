@@ -27,11 +27,11 @@ jobs:
       - name: Start API
         run: dart run bin/server.dart & dart --version
 
-      - name: Fetch data
+      - name: Fetch dataf
         uses: githubocto/flat@v3
         with:
           http_url: http://localhost:8080/cache
-          downloaded_filename: last-cached.json
+          downloaded_filename: cache.json
 
       - name: Fetch data
         uses: githubocto/flat@v3

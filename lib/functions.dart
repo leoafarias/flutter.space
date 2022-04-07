@@ -15,7 +15,7 @@ FutureOr<Response> function(Request request) {
 
   app.get('/cache', (Request request) async {
     await fetchAndCacheRequests();
-    return Response.ok(DateTime.now());
+    return Response.ok('cache');
   });
 
   app.get('/flutter-favorites', (Request request) {
