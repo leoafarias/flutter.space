@@ -1,62 +1,133 @@
-# Flutter.space
+# flutter.space
 
-## Flutter & Dart Unofficial Flat Data API
-
-Flat Dataset for different helpful Flutter APIs
-
-### Flutter Releases
-
-Currently does a daily snapshot of the Flutter Releases JSON for all platforms.
-
-View Data: https://flatgithub.com/leoafarias/flutter_flat_data?filename=releases_macos.json
-
-### Flutter Favorites
-
-A json with all Flutter Favorites including package information.
-
-View Data: https://flatgithub.com/leoafarias/flutter_flat_data?filename=flutter-favorites.json
-
-### Github Dart Trending Repos
-
-A json with a trending Github Repos in Dart in the last month.
-
-View Data: https://flatgithub.com/leoafarias/flutter_flat_data?filename=trending-repository-month.json
+API for a flat dataset for different interesting Flutter/Dart information.
 
 ## Use as an API
 
-We leverage GitHub CDN infrastructure in order to provide the flat data as API endpoints. These endpoints are currently being used on [Flutter Sidekick](https://github.com/leoafarias/sidekick)
+We leverage GitHub CDN infrastructure in order to provide the flat data as API endpoints. These endpoints are currently being used on [FVM](https://github.com/fluttertools/fvm) & [Flutter Sidekick](https://github.com/fluttertools/sidekick)
 
-### Trending
+## Available Flat Data
 
-Daily: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/trending-repository-today.json
+- Flutter releases (MacOS, Windows & Linux)
+- Flutter Favorites (Official Flutter Favorites)
+- Github trending Repositories (daily/weekly/monthly)
+- Pub.dev packages
+  - Most popular
+  - Most liked
+  - Recently updated
+  - Recently created
+  - Google packages
 
-Weekly: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/trending-repository-week.json
+## API Request
 
-Monthly: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/trending-repository-month.json
+### Curl
+```curl
+curl --location --request GET 'http://api.flutter.space/ENDPOINT_HERE.json'
+```
 
-### Flutter Favorites
+### Dart
 
-https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/flutter-favorites.json
+```dart
+var request = http.Request('GET', Uri.parse('http://api.flutter.space/ENDPOINT_HERE.json'));
 
-### Google Packages
+
+http.StreamedResponse response = await request.send();
+
+if (response.statusCode == 200) {
+  print(await response.stream.bytesToString());
+}
+else {
+  print(response.reasonPhrase);
+}
+
+```
+
+## Flutter Releases
+
+Currently does a daily snapshot of the Flutter Releases JSON for all platforms.
+
+### Endpoints
+
+macos - https://api.flutter.space/releases_macos.json
+
+windows - https://api.flutter.space/releases_windows.json
+
+linux - https://api.flutter.space/releases_linux.json
+
+### Browse data
+
+macos - https://flatgithub.com/fluttertools/flutter.space?filename=releases_macos.json
+
+windows - https://flatgithub.com/fluttertools/flutter.space?filename=releases_windows.json
+
+linux - https://flatgithub.com/fluttertools/flutter.space?filename=releases_linux.json
+
+## Flutter Favorites
+
+A json with all Flutter Favorites including package information.
+
+### Endpoints
+
+https://api.flutter.space/flutter-favorites.json
+
+### Browse data
+
+https://flatgithub.com/fluttertools/flutter.space?filename=flutter-favorites.json
+
+## Github Dart Trending Repos
+
+A json with a trending Github Repos in Dart in the last month.
+
+### Endpoints
+
+today - https://api.flutter.space/trending-repository-today.json
+
+week - https://api.flutter.space/trending-repository-week.json
+
+month - https://api.flutter.space/trending-repository-month.json
+
+
+### Browse data
+
+today - https://flatgithub.com/fluttertools/flutter.space?filename=trending-repository-today.json
+
+week - https://flatgithub.com/fluttertools/flutter.space?filename=trending-repository-week.json
+
+month - https://flatgithub.com/fluttertools/flutter.space?filename=trending-repository-month.json
+
+## Google Packages
 
 Official Google packages on pub.dev
-https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/google-packages.json
 
-### Releases
+### Endpoints
 
-MacOS: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/releases_macos.json
+https://api.flutter.space/google-packages.json
 
-Windows: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/releases_windows.json
+### Browse data
 
-Linux: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/releases_linux.json
+https://flatgithub.com/fluttertools/flutter.space?filename=google-packages.json
 
-### Pub.dev Packages
 
-Recently Updated: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/packages-recently-updated.json
+## Pub.dev Packages
 
-Recently Created: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/packages-recently-created.json
+### Endpoints
 
-Most Popular: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/packages-most-popular.json
+Popular: https://api.flutter.space/packages-most-popular.json
 
-Most Liked: https://raw.githubusercontent.com/leoafarias/flutter_flat_data/main/packages-most-liked.json
+Most liked: https://api.flutter.space/packages-most-liked.json
+
+Recently created: https://api.flutter.space/packages-recently-created.json
+
+Recently updated: https://api.flutter.space/packages-recently-updated.json
+
+
+### Browse data
+
+Popular: https://flatgithub.com/fluttertools/flutter.space?filename=packages-most-popular.json
+
+Most liked: https://flatgithub.com/fluttertools/flutter.space?filename=packages-most-liked.json
+
+Recently created: https://flatgithub.com/fluttertools/flutter.space?filename=packages-recently-created.json
+
+Recently updated: https://flatgithub.com/fluttertools/flutter.space?filename=packages-recently-updated.json
+
