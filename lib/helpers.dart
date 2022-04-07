@@ -128,7 +128,7 @@ Future<List<GithubRepoItem>> fetchDartTrendingRepos(
   GhTrendDateRange timePeriod,
 ) async {
   var data = _trendingCache[timePeriod];
-  if (data == null) {
+  if (data == null || data.isEmpty) {
     data = await ghTrendingRepositories(
       programmingLanguage: 'dart',
       dateRange: timePeriod,
