@@ -1,10 +1,22 @@
-import 'dart:convert';
+import 'dart:collection';
 
 import 'package:gh_trend/gh_trend.dart';
+import 'package:http/http.dart' as http;
+import 'package:http_extensions/http_extensions.dart';
+import 'package:http_extensions_cache/http_extensions_cache.dart';
 import 'package:pub_api_client/pub_api_client.dart';
-import 'package:shelf/shelf.dart';
 
-final client = PubClient();
+final client = PubClient(
+    client: ExtendedClient(
+  inner: http.Client() as http.BaseClient,
+  extensions: [
+    CacheExtension(
+      defaultOptions: CacheOptions(
+        store: MemoryCacheStore(),
+      ),
+    ),
+  ],
+));
 
 class Package {
   const Package({
@@ -47,6 +59,20 @@ class Package {
       'lastUpdated': lastUpdated?.toIso8601String(),
     };
   }
+}
+
+Future<void> fetchAndCacheRequests() async {
+  final futures = <Future>[];
+  futures.add(fetchFlutterFavorites());
+  futures.add(fetchGooglePackages());
+  futures.add(fetchDartTrendingRepos(GhTrendDateRange.today));
+  futures.add(fetchDartTrendingRepos(GhTrendDateRange.thisWeek));
+  futures.add(fetchDartTrendingRepos(GhTrendDateRange.thisMonth));
+  futures.add(fetchSortedPackages(SearchOrder.popularity));
+  futures.add(fetchSortedPackages(SearchOrder.like));
+  futures.add(fetchSortedPackages(SearchOrder.created));
+  futures.add(fetchSortedPackages(SearchOrder.updated));
+  await Future.wait(futures);
 }
 
 Future<List<Package>> fetchPackagesInfo(Iterable<String> packages) async {
@@ -94,13 +120,23 @@ Future<List<Package>> fetchPackagesInfo(Iterable<String> packages) async {
   return pkgList;
 }
 
+final _trendingCache =
+    {} as LinkedHashMap<GhTrendDateRange, List<GithubRepoItem>>;
+
 Future<List<GithubRepoItem>> fetchDartTrendingRepos(
   GhTrendDateRange timePeriod,
-) {
-  return ghTrendingRepositories(
-    programmingLanguage: 'dart',
-    dateRange: timePeriod,
-  );
+) async {
+  var data = _trendingCache[timePeriod];
+  if (data == null) {
+    data = await ghTrendingRepositories(
+      programmingLanguage: 'dart',
+      dateRange: timePeriod,
+    );
+
+    _trendingCache[timePeriod] = data;
+  }
+
+  return data;
 }
 
 /// Retrieves all the flutter favorites
@@ -121,7 +157,7 @@ Future<List<Package>> fetchSortedPackages(
   int limit = 100,
 }) async {
   final searchResults = await client.search('', sort: sort);
-  final results = await _recursivePaging(searchResults, limit: 100);
+  final results = await _recursivePaging(searchResults, limit: limit);
   final sorted = results.map((r) => r.package);
 
   return fetchPackagesInfo(sorted);
@@ -151,11 +187,3 @@ Future<List<PackageResult>> _recursivePaging(
   return packages;
 }
 
-Response jsonResponse(dynamic result) {
-  return Response.ok(
-    jsonEncode(result),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  );
-}

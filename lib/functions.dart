@@ -4,15 +4,18 @@ import 'package:functions_framework/functions_framework.dart';
 import 'package:gh_trend/gh_trend.dart';
 import 'package:pub_api_client/pub_api_client.dart';
 import 'package:server/helpers.dart';
-import 'package:shelf/shelf.dart';
 import 'package:shelf_plus/shelf_plus.dart';
-import 'package:shelf_router/shelf_router.dart';
 
 @CloudFunction()
 FutureOr<Response> function(Request request) {
   final app = Router().plus;
   app.get('/', (Request request) {
     return Response.ok('hello-world');
+  });
+
+  app.get('/cache', (Request request) async {
+    await fetchAndCacheRequests();
+    return Response.ok(DateTime.now());
   });
 
   app.get('/flutter-favorites', (Request request) {
