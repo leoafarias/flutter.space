@@ -48,11 +48,11 @@ Currently does a daily snapshot of the Flutter Releases JSON for all platforms.
 
 ### Endpoints
 
-macos - https://api.flutter.space/releases_macos.json
+macos - https://api.flutter.space/releases-macos.json
 
-windows - https://api.flutter.space/releases_windows.json
+windows - https://api.flutter.space/releases-windows.json
 
-linux - https://api.flutter.space/releases_linux.json
+linux - https://api.flutter.space/releases-linux.json
 
 ### Browse data
 

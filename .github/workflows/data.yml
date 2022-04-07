@@ -31,17 +31,17 @@ jobs:
         uses: githubocto/flat@v3
         with:
           http_url: https://storage.googleapis.com/flutter_infra_release/releases/releases_macos.json
-          downloaded_filename: releases_macos.json
+          downloaded_filename: releases-macos.json
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
           http_url: https://storage.googleapis.com/flutter_infra_release/releases/releases_windows.json
-          downloaded_filename: releases_windows.json
+          downloaded_filename: releases-windows.json
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
           http_url: https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json
-          downloaded_filename: releases_linux.json
+          downloaded_filename: releases-linux.json
 
       - name: Flutter Favorites
         uses: githubocto/flat@v3
