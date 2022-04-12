@@ -6,6 +6,12 @@
 
 API for a flat dataset for different interesting Flutter/Dart information.
 
+## Important
+
+```text
+This is an experimental API, and the endpoints might still change. If you would like to use this data in production, please open an issue, so we can provide timeline.
+```
+
 ## Use as an API
 
 We leverage GitHub CDN infrastructure in order to provide the flat data as API endpoints. These endpoints are currently being used on [FVM](https://github.com/fluttertools/fvm) & [Flutter Sidekick](https://github.com/fluttertools/sidekick)
