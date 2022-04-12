@@ -73,49 +73,52 @@ Future<void> fetchAndCacheRequests() async {
   await Future.wait(futures);
 }
 
-Future<List<Package>> fetchPackagesInfo(Iterable<String> packages) async {
-  final pkgFutures = <Future<PubPackage>>[];
-  final metricsFutures = <Future<PackageMetrics?>>[];
+// Simple memory cache to avoid over fetching on pub.dev API
+final packageInfoCache = <String, Package>{};
+
+Future<Package> fetchPackageInfo(String packageName) async {
+  Future<PubPackage> infoFuture;
+  Future<PackageMetrics?> metricsFuture;
+
+  if (packageInfoCache[packageName] != null) {
+    return Future.value(packageInfoCache[packageName]);
+  } else {
+    metricsFuture = client.packageMetrics(packageName);
+    infoFuture = client.packageInfo(packageName);
+  }
+
+  final metrics = await metricsFuture;
+  final info = await infoFuture;
+
+  final card = metrics?.scorecard;
+  final score = metrics?.score;
+
+  final package = Package(
+    name: info.name,
+    version: info.version,
+    description: info.description,
+    url: info.url,
+    changelogUrl: info.changelogUrl,
+    grantedPoints: card?.grantedPubPoints,
+    maxPoints: card?.maxPubPoints,
+    likeCount: score?.likeCount,
+    popularityScore: score?.popularityScore,
+    lastUpdated: score?.lastUpdated,
+  );
+
+  packageInfoCache[packageName] = package;
+
+  return package;
+}
+
+Future<List<Package>> fetchPackagesData(Iterable<String> packages) async {
+  final pkgFutures = <Future<Package>>[];
+
   for (final package in packages) {
-    pkgFutures.add(client.packageInfo(package));
-    metricsFutures.add(client.packageMetrics(package));
+    pkgFutures.add(fetchPackageInfo(package));
   }
 
-  final pkgs = await Future.wait(pkgFutures);
-  final metrics = await Future.wait(metricsFutures);
-
-  final metricMap = <String, PackageMetrics>{};
-
-  for (final metric in metrics) {
-    if (metric != null) {
-      metricMap[metric.scorecard.packageName] = metric;
-    }
-  }
-
-  final pkgList = <Package>[];
-
-  for (final pkg in pkgs) {
-    final metric = metricMap[pkg.name];
-    final card = metric?.scorecard;
-    final score = metric?.score;
-
-    pkgList.add(
-      Package(
-        name: pkg.name,
-        version: pkg.version,
-        description: pkg.description,
-        url: pkg.url,
-        changelogUrl: pkg.changelogUrl,
-        grantedPoints: card?.grantedPubPoints,
-        maxPoints: card?.maxPubPoints,
-        likeCount: score?.likeCount,
-        popularityScore: score?.popularityScore,
-        lastUpdated: score?.lastUpdated,
-      ),
-    );
-  }
-
-  return pkgList;
+  return await Future.wait(pkgFutures);
 }
 
 final _trendingCache = {
@@ -143,13 +146,13 @@ Future<List<GithubRepoItem>> fetchDartTrendingRepos(
 /// Retrieves all the flutter favorites
 Future<List<Package>> fetchGooglePackages() async {
   final googlePkgs = await client.fetchGooglePackages();
-  return fetchPackagesInfo(googlePkgs);
+  return fetchPackagesData(googlePkgs);
 }
 
 /// Retrieves all the flutter favorites
 Future<List<Package>> fetchFlutterFavorites() async {
   final favorites = await client.fetchFlutterFavorites();
-  return fetchPackagesInfo(favorites);
+  return fetchPackagesData(favorites);
 }
 
 /// Retrieves a limited list of sorted packages
@@ -161,7 +164,7 @@ Future<List<Package>> fetchSortedPackages(
   final results = await _recursivePaging(searchResults, limit: limit);
   final sorted = results.map((r) => r.package);
 
-  return fetchPackagesInfo(sorted);
+  return fetchPackagesData(sorted);
 }
 
 Future<List<PackageResult>> _recursivePaging(
