@@ -37,68 +37,68 @@ jobs:
         uses: githubocto/flat@v3
         with:
           http_url: https://storage.googleapis.com/flutter_infra_release/releases/releases_macos.json
-          downloaded_filename: releases-macos.json
+          downloaded_filename: v1/releases/macos.json
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
           http_url: https://storage.googleapis.com/flutter_infra_release/releases/releases_windows.json
-          downloaded_filename: releases-windows.json
+          downloaded_filename: v1/releases/windows.json
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
           http_url: https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json
-          downloaded_filename: releases-linux.json
-
-      - name: Flutter Favorites
-        uses: githubocto/flat@v3
-        with:
-          http_url: http://localhost:8080/flutter-favorites
-          downloaded_filename: flutter-favorites.json
-
-      - name: Google Packages
-        uses: githubocto/flat@v3
-        with:
-          http_url: http://localhost:8080/google-packages
-          downloaded_filename: google-packages.json
+          downloaded_filename: v1/releases/linux.json
 
       - name: Fetch Trending Today
         uses: githubocto/flat@v3
         with:
           http_url: http://localhost:8080/trending/today
-          downloaded_filename: trending-repository-today.json
+          downloaded_filename: v1/trending/today.json
 
       - name: Fetch Trending Week
         uses: githubocto/flat@v3
         with:
           http_url: http://localhost:8080/trending/week
-          downloaded_filename: trending-repository-week.json
+          downloaded_filename: v1/trending/week.json
 
       - name: Fetch Trending Month
         uses: githubocto/flat@v3
         with:
           http_url: http://localhost:8080/trending/month
-          downloaded_filename: trending-repository-month.json
+          downloaded_filename: v1/trending/month.json
+
+      - name: Flutter Favorites
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/flutter-favorites
+          downloaded_filename: v1/pub/flutter-favorites.json
+
+      - name: Google Packages
+        uses: githubocto/flat@v3
+        with:
+          http_url: http://localhost:8080/google-packages
+          downloaded_filename: v1/pub/google-packages.json
 
       - name: Most Popular Packages
         uses: githubocto/flat@v3
         with:
           http_url: http://localhost:8080/packages/most-popular
-          downloaded_filename: packages-most-popular.json
+          downloaded_filename: v1/pub/most-popular.json
 
       - name: Most Liked Packages
         uses: githubocto/flat@v3
         with:
           http_url: http://localhost:8080/packages/most-liked
-          downloaded_filename: packages-most-liked.json
+          downloaded_filename: v1/pub/most-liked.json
 
       - name: Recently Updated Packages
         uses: githubocto/flat@v3
         with:
           http_url: http://localhost:8080/packages/recently-updated
-          downloaded_filename: packages-recently-updated.json
+          downloaded_filename: v1/pub/recently-updated.json
 
       - name: Recently Created Packages
         uses: githubocto/flat@v3
         with:
           http_url: http://localhost:8080/packages/recently-created
-          downloaded_filename: packages-recently-created.json
+          downloaded_filename: v1/pub/recently-created.json
