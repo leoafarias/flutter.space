@@ -78,7 +78,7 @@ A json with all Flutter Favorites including package information.
 
 ### Endpoints
 
-https://api.flutter.space/flutter-favorites.json
+https://api.flutter.space/v1/pub/flutter-favorites.json
 
 ### Browse data
 
@@ -122,13 +122,13 @@ https://flatgithub.com/fluttertools/flutter.space?filename=google-packages.json
 
 ### Endpoints
 
-Popular: https://api.flutter.space/packages-most-popular.json
+Popular: https://api.flutter.space/v1/pub/most-popular.json
 
-Most liked: https://api.flutter.space/packages-most-liked.json
+Most liked: https://api.flutter.space/v1/pub/most-liked.json
 
-Recently created: https://api.flutter.space/packages-recently-created.json
+Recently created: https://api.flutter.space/v1/pub/recently-created.json
 
-Recently updated: https://api.flutter.space/packages-recently-updated.json
+Recently updated: https://api.flutter.space/v1/pub/recently-updated.json
 
 
 ### Browse data
