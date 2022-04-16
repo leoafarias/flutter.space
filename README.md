@@ -58,11 +58,11 @@ Currently does a daily snapshot of the Flutter Releases JSON for all platforms.
 
 ### Endpoints
 
-macos - https://api.flutter.space/releases-macos.json
+macos - https://api.flutter.space/v1/releases/macos.json
 
-windows - https://api.flutter.space/releases-windows.json
+windows - https://api.flutter.space/v1/releases/windows.json
 
-linux - https://api.flutter.space/releases-linux.json
+linux - https://api.flutter.space/v1/releases/linux.json
 
 ### Browse data
 
@@ -90,11 +90,11 @@ A json with a trending Github Repos in Dart in the last month.
 
 ### Endpoints
 
-today - https://api.flutter.space/trending-repository-today.json
+today - https://api.flutter.space/v1/trending/today.json
 
-week - https://api.flutter.space/trending-repository-week.json
+week - https://api.flutter.space/v1/trending/week.json
 
-month - https://api.flutter.space/trending-repository-month.json
+month - https://api.flutter.space/v1/trending/month.json
 
 
 ### Browse data
@@ -111,7 +111,7 @@ Official Google packages on pub.dev
 
 ### Endpoints
 
-https://api.flutter.space/google-packages.json
+https://api.flutter.space/v1/pub/google-packages.json
 
 ### Browse data
 
